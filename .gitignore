@@ -1,0 +1,21 @@
+# Python / Django
+backend/venv/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/db.sqlite3
+backend/.env
+backend/staticfiles/
+backend/media/
+backend/dump.rdb
+backend/*.rdb
+
+# Node / frontend (frontend/ has its own .gitignore too)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# OS / editors
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
