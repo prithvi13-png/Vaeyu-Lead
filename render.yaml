@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: vaeyu-lead-tracker-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.4"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "localhost,127.0.0.1"
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: AUTH_COOKIE_SECURE
+        value: "True"
+      - key: AUTH_COOKIE_SAMESITE
+        value: "None"
+      - key: CELERY_TASK_ALWAYS_EAGER
+        value: "True"
+      - key: WEBSITE_ENQUIRY_API_TOKEN
+        generateValue: true
+      - key: EMAIL_BACKEND
+        value: "django.core.mail.backends.console.EmailBackend"
+      - key: DEFAULT_FROM_EMAIL
+        value: "no-reply@vaeyu.local"
+      - key: LEAD_FALLBACK_ALERT_EMAIL
+        sync: false
