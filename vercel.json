@@ -2,7 +2,8 @@
   "experimentalServices": {
     "frontend": {
       "root": "frontend",
-      "buildCommand": "npm run build"
+      "buildCommand": "npm run build",
+      "mount": "/"
     }
   },
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
