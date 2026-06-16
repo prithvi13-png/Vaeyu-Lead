@@ -7,7 +7,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -79,15 +78,13 @@ export function AppLayout() {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>
-                  <div className="flex flex-col">
-                    <span className="font-medium">{user.name}</span>
-                    <span className="text-xs text-muted-foreground">{user.email}</span>
-                    <span className="text-xs text-muted-foreground capitalize">
-                      {user.role.replace("_", " ")}
-                    </span>
-                  </div>
-                </DropdownMenuLabel>
+                <div className="flex flex-col px-2 py-1.5">
+                  <span className="text-sm font-medium">{user.name}</span>
+                  <span className="text-xs text-muted-foreground">{user.email}</span>
+                  <span className="text-xs text-muted-foreground capitalize">
+                    {user.role.replace("_", " ")}
+                  </span>
+                </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>Log out</DropdownMenuItem>
               </DropdownMenuContent>
